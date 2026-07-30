@@ -127,8 +127,11 @@ h1,h2,h3{font-weight:500;line-height:1.1;letter-spacing:-.032em}
 /* ---------- header ---------- */
 .topbar{
   text-align:center;font-size:12.5px;color:var(--muted);padding:12px 18px 0;letter-spacing:-.005em;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
 }
 .topbar b{color:var(--ink-2);font-weight:500}
+.topbar .full{display:inline}
+.topbar .short{display:none}
 header.site{position:sticky;top:0;z-index:50;padding:10px 0;transition:padding .3s ease}
 header.site .bar{
   display:flex;align-items:center;justify-content:space-between;gap:14px;
@@ -163,7 +166,9 @@ header.site.scrolled .bar{box-shadow:0 6px 26px rgba(0,0,0,.09);border-color:rgb
   header.site .bar{padding:8px 8px 8px 14px;height:54px}
   .brand .name{font-size:13px}
   .brand .name span{display:none}
-  .topbar{font-size:11px}
+  .topbar{font-size:11px;padding:10px 14px 0}
+  .topbar .full{display:none}
+  .topbar .short{display:inline}
 }
 
 /* ---------- hero ---------- */
@@ -405,7 +410,10 @@ footer a:hover{color:#000}
 </head>
 <body>
 
-<div class="topbar">Online <b>24/7/365</b> &nbsp;·&nbsp; Islamabad &amp; Rawalpindi &nbsp;·&nbsp; Delivered to your WhatsApp</div>
+<div class="topbar">
+  <span class="full">Online <b>24/7/365</b> &nbsp;·&nbsp; Islamabad &amp; Rawalpindi &nbsp;·&nbsp; Delivered to your WhatsApp</span>
+  <span class="short">Online <b>24/7/365</b> &nbsp;·&nbsp; Islamabad &amp; Rawalpindi</span>
+</div>
 
 <header class="site" id="siteHeader">
   <div class="wrap">
