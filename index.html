@@ -13,6 +13,36 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AL-QANOON E-STAMPS — Online E-Stamp Paper in Islamabad &amp; Rawalpindi | 24/7</title>
+
+<!-- ============ TRACKING CONFIG ============
+  1. FB_PIXEL_ID  — from Meta Events Manager > Data Sources > your Pixel > Settings.
+  2. LEADS_WEBHOOK_URL — the Google Apps Script Web App URL from the "Leads Google Sheet" setup
+     (see leads-sheet-setup.gs in the repo root for the script to paste into Google Sheets).
+  Replace both placeholders below, then deploy. -->
+<script>
+  window.SITE_TRACKING = {
+    FB_PIXEL_ID: "REPLACE_WITH_YOUR_PIXEL_ID",
+    LEADS_WEBHOOK_URL: "REPLACE_WITH_YOUR_APPS_SCRIPT_WEB_APP_URL"
+  };
+</script>
+
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+if(window.SITE_TRACKING.FB_PIXEL_ID && window.SITE_TRACKING.FB_PIXEL_ID.indexOf("REPLACE_WITH")!==0){
+  fbq('init', window.SITE_TRACKING.FB_PIXEL_ID);
+  fbq('track', 'PageView');
+}
+</script>
+<!-- Optional: for the rare visitor with JS disabled, uncomment and put your numeric Pixel ID in place of PIXEL_ID_HERE
+<noscript><img height="1" width="1" style="display:none" alt=""
+  src="https://www.facebook.com/tr?id=PIXEL_ID_HERE&ev=PageView&noscript=1"/></noscript>
+-->
+<!-- End Meta Pixel Code -->
 <meta name="description" content="Get your official e-stamp paper online in minutes — Islamabad &amp; Rawalpindi. Rent agreements, affidavits, power of attorney &amp; more. PKR 2,000 flat service fee includes issuance + drafting. Order on WhatsApp, 24/7/365.">
 <meta property="og:title" content="AL-QANOON E-STAMPS — E-Stamp Paper Online, Twin Cities">
 <meta property="og:description" content="Official e-stamp paper issued online for Islamabad &amp; Rawalpindi. Flat PKR 2,000 service fee — issuance + drafting/formatting. WhatsApp checkout. Open 24/7/365.">
@@ -809,7 +839,7 @@ footer li a:hover svg{opacity:1;transform:translateX(0)}
           </span>
           <h2>Still deciding?<br>Start here.</h2>
           <p>Seven questions cover almost everything. If yours isn't one of them, our team is a message away — 24/7/365.</p>
-          <a class="faq-cta" href="https://wa.me/923374841818?text=Assalam%20o%20Alaikum!%20I%20have%20a%20question%20about%20e-stamps." target="_blank" rel="noopener">
+          <a class="faq-cta" data-wa-source="faq_cta" href="https://wa.me/923374841818?text=Assalam%20o%20Alaikum!%20I%20have%20a%20question%20about%20e-stamps." target="_blank" rel="noopener">
             <span class="wa-dot">
               <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.66 15L2 22l5.2-1.36A10 10 0 1 0 12 2zm0 18.2c-1.5 0-2.97-.4-4.25-1.15l-.3-.18-3.08.8.82-3-.2-.31A8.2 8.2 0 1 1 12 20.2zm4.5-6.13c-.25-.12-1.46-.72-1.68-.8-.23-.08-.4-.12-.56.13-.17.24-.64.8-.79.96-.14.17-.29.19-.54.06a6.7 6.7 0 0 1-3.35-2.93c-.25-.43.25-.4.72-1.34.08-.16.04-.3-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.42h-.48c-.16 0-.43.06-.66.3-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.13.17 1.75 2.67 4.23 3.74.6.26 1.05.41 1.41.52.6.19 1.13.16 1.56.1.48-.07 1.46-.6 1.67-1.18.2-.57.2-1.06.14-1.17-.06-.1-.23-.16-.48-.29z"/></svg>
             </span>
@@ -891,7 +921,7 @@ footer li a:hover svg{opacity:1;transform:translateX(0)}
           <h2><span class="thin">Need a stamp paper</span><br>right now?</h2>
           <p>It's <b id="liveTime">—</b> and we're online. Get it done before your next cup of chai.</p>
           <div class="row">
-            <a class="btn btn-wa" href="https://wa.me/923374841818?text=Assalam%20o%20Alaikum!%20I%20need%20an%20e-stamp%20paper.%20Please%20guide%20me." target="_blank" rel="noopener">
+            <a class="btn btn-wa" data-wa-source="final_cta" href="https://wa.me/923374841818?text=Assalam%20o%20Alaikum!%20I%20need%20an%20e-stamp%20paper.%20Please%20guide%20me." target="_blank" rel="noopener">
               <svg class="wa-ic" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.66 15L2 22l5.2-1.36A10 10 0 1 0 12 2zm0 18.2c-1.5 0-2.97-.4-4.25-1.15l-.3-.18-3.08.8.82-3-.2-.31A8.2 8.2 0 1 1 12 20.2zm4.5-6.13c-.25-.12-1.46-.72-1.68-.8-.23-.08-.4-.12-.56.13-.17.24-.64.8-.79.96-.14.17-.29.19-.54.06a6.7 6.7 0 0 1-3.35-2.93c-.25-.43.25-.4.72-1.34.08-.16.04-.3-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.42h-.48c-.16 0-.43.06-.66.3-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.13.17 1.75 2.67 4.23 3.74.6.26 1.05.41 1.41.52.6.19 1.13.16 1.56.1.48-.07 1.46-.6 1.67-1.18.2-.57.2-1.06.14-1.17-.06-.1-.23-.16-.48-.29z"/></svg>
               +92 337 4841818
             </a>
@@ -919,7 +949,7 @@ footer li a:hover svg{opacity:1;transform:translateX(0)}
         <a class="brand" href="#top"><svg class="mark" viewBox="-18177.2 6124.0 4265.2 4721.8" aria-hidden="true"><path fill="currentColor" d="M-15448 9467c-14,-14 -46,-31 -64,-43l-331 -213c-20,-13 -124,-81 -136,-85 -72,17 -145,30 -227,36 -21,2 -40,-1 -61,2 -23,4 -167,-8 -186,-11 -205,-30 -402,-103 -567,-227 -62,-47 -138,-112 -190,-170l-75 -92c-19,-25 -38,-53 -54,-79 -178,-296 -238,-618 -152,-962 50,-201 167,-408 308,-549l68 -65c41,-41 144,-110 192,-138 111,-67 249,-121 379,-148 76,-16 107,-16 174,-26l62 -5c48,-3 91,3 127,3 135,0 345,62 471,122 448,215 742,705 683,1222 -17,147 -53,285 -117,413 7,10 97,65 116,77 30,19 342,224 357,226 3,-12 11,-23 17,-33 7,-11 11,-20 18,-32 13,-21 22,-44 34,-66 94,-187 157,-419 168,-636 1,-16 3,-26 3,-47 0,-39 2,-119 -2,-148 -2,-16 -1,-31 -3,-47l-16 -134c-9,-56 -22,-116 -36,-167 -8,-28 -14,-51 -23,-77l-55 -145c-75,-170 -187,-350 -320,-483 -58,-58 -89,-89 -155,-145l-56 -44c-68,-51 -172,-118 -247,-156 -216,-107 -453,-186 -699,-204 -56,-4 -104,-6 -150,-7l-39 0c-62,1 -123,4 -196,10 -82,7 -176,26 -256,44 -29,7 -52,12 -80,20 -76,22 -222,72 -295,109 -84,43 -142,67 -227,123 -11,7 -21,13 -33,21l-212 165c-26,22 -69,62 -90,87 -16,20 -49,48 -72,78 -7,10 -15,17 -23,27 -118,147 -175,238 -252,402 -28,59 -64,156 -82,218 -96,345 -89,682 20,1002l41 109c52,130 102,211 177,323 25,38 104,139 135,169 36,36 51,59 100,100 39,32 55,54 107,93 19,14 37,29 57,43 10,8 19,13 30,20 158,118 401,219 590,266 395,99 821,65 1206,-88 25,-10 46,-20 70,-30 20,-9 54,-28 71,-32z"/><path fill="currentColor" d="M-14994 9757c2,29 15,58 17,83 53,0 82,8 129,21 14,4 24,9 38,11 118,27 215,58 319,102 50,21 99,40 150,60 49,20 96,42 144,61 -11,-16 -22,-27 -39,-42l-358 -373c-21,-23 -14,-29 -51,-23 -23,3 -50,8 -73,5 -43,-6 -72,-41 -84,-79 -16,-46 7,-94 30,-117 24,-24 74,-47 121,-31 34,12 69,47 76,88 5,28 -2,51 -5,77 -4,35 8,37 24,54 24,25 53,61 78,82l220 227c7,7 14,12 21,19 16,16 64,72 78,80 -41,-130 -99,-247 -141,-378 -42,-130 -67,-279 -100,-417 -22,-6 -86,-10 -143,-24 -161,-39 -213,-98 -332,-160 -9,5 -29,23 -37,32l-239 230c6,14 20,30 28,44 79,127 108,209 131,366z"/><path fill="currentColor" d="M-15231 9380c21,-9 259,-246 288,-278 20,-22 77,-81 89,-102 -17,-21 -70,-47 -98,-63 -61,-35 -279,-145 -329,-153l133 102c24,18 45,33 69,51 18,14 54,38 67,52 -15,11 -29,27 -44,39l-87 79c-16,16 -26,27 -45,40l-107 -131c-7,-7 -12,-11 -18,-19l-174 -170c-78,-75 -335,-259 -437,-320 -81,-48 -176,-110 -262,-151 -32,-15 -62,-28 -92,-45l-187 -89 176 120c85,56 426,308 509,388 14,13 24,21 39,35l243 240c85,94 175,215 238,325 7,13 21,39 28,48z"/><path fill="#c2d83e" d="M-14214 10261l-119 64c-13,6 -18,10 -30,17 -158,80 -293,153 -460,233 -61,29 -204,88 -267,107 -43,13 -110,32 -155,32 0,-34 36,-58 60,-77 26,-20 50,-40 76,-61 34,-27 194,-152 229,-185 27,-26 78,-65 110,-97l37 -33c25,-25 46,-56 46,-94 -17,-4 -24,-14 -70,-17 -61,-3 -223,42 -282,65 -22,9 -41,15 -63,23 -95,37 -269,109 -366,157 -20,10 -39,18 -59,28 -19,10 -37,19 -58,29 -21,10 -37,19 -58,29l-43 23c-1,1 -5,3 -7,3 -7,4 -3,2 -8,6 17,-1 416,-167 441,-176 108,-40 341,-131 450,-131 14,0 18,3 37,3 -22,47 -19,44 -59,84 -13,13 -24,25 -37,36l-293 217c-72,51 -203,150 -210,230 140,67 708,-230 887,-323l309 -173 101 -70c34,-23 68,-44 103,-66 -51,14 -210,110 -240,116z"/><polygon fill="#c2d83e" points="-15701,10514 -15708,10516 "/></svg><span class="name">AL-QANOON <span>E-Stamps</span></span></a>
         <p class="about">Official e-stamp paper issuance, document drafting and formatting — fully online, for Islamabad and Rawalpindi. Open 24 hours a day, 365 days a year.</p>
         <div class="foot-social">
-          <a href="https://wa.me/923374841818" target="_blank" rel="noopener" aria-label="WhatsApp">
+          <a href="https://wa.me/923374841818" data-wa-source="footer_social" target="_blank" rel="noopener" aria-label="WhatsApp">
             <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.66 15L2 22l5.2-1.36A10 10 0 1 0 12 2zm0 18.2c-1.5 0-2.97-.4-4.25-1.15l-.3-.18-3.08.8.82-3-.2-.31A8.2 8.2 0 1 1 12 20.2zm4.5-6.13c-.25-.12-1.46-.72-1.68-.8-.23-.08-.4-.12-.56.13-.17.24-.64.8-.79.96-.14.17-.29.19-.54.06a6.7 6.7 0 0 1-3.35-2.93c-.25-.43.25-.4.72-1.34.08-.16.04-.3-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.42h-.48c-.16 0-.43.06-.66.3-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.13.17 1.75 2.67 4.23 3.74.6.26 1.05.41 1.41.52.6.19 1.13.16 1.56.1.48-.07 1.46-.6 1.67-1.18.2-.57.2-1.06.14-1.17-.06-.1-.23-.16-.48-.29z"/></svg>
           </a>
           <a href="mailto:sign@alqanoon.com.pk" aria-label="Email">
@@ -943,7 +973,7 @@ footer li a:hover svg{opacity:1;transform:translateX(0)}
       <div>
         <h4>Contact</h4>
         <ul>
-          <li><a href="https://wa.me/923374841818" target="_blank" rel="noopener">WhatsApp +92 337 4841818<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+          <li><a href="https://wa.me/923374841818" data-wa-source="footer_contact" target="_blank" rel="noopener">WhatsApp +92 337 4841818<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
           <li><a href="mailto:sign@alqanoon.com.pk">sign@alqanoon.com.pk<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
           <li><a href="https://alqanoon.com.pk">alqanoon.com.pk<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
           <li>Islamabad &amp; Rawalpindi, Pakistan</li>
@@ -960,7 +990,7 @@ footer li a:hover svg{opacity:1;transform:translateX(0)}
 </div>
 </main>
 
-<a class="wa-float" href="https://wa.me/923374841818?text=Assalam%20o%20Alaikum!%20I%20need%20an%20e-stamp%20paper." target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+<a class="wa-float" data-wa-source="floating_button" href="https://wa.me/923374841818?text=Assalam%20o%20Alaikum!%20I%20need%20an%20e-stamp%20paper." target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.66 15L2 22l5.2-1.36A10 10 0 1 0 12 2zm0 18.2c-1.5 0-2.97-.4-4.25-1.15l-.3-.18-3.08.8.82-3-.2-.31A8.2 8.2 0 1 1 12 20.2zm4.5-6.13c-.25-.12-1.46-.72-1.68-.8-.23-.08-.4-.12-.56.13-.17.24-.64.8-.79.96-.14.17-.29.19-.54.06a6.7 6.7 0 0 1-3.35-2.93c-.25-.43.25-.4.72-1.34.08-.16.04-.3-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.42h-.48c-.16 0-.43.06-.66.3-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.13.17 1.75 2.67 4.23 3.74.6.26 1.05.41 1.41.52.6.19 1.13.16 1.56.1.48-.07 1.46-.6 1.67-1.18.2-.57.2-1.06.14-1.17-.06-.1-.23-.16-.48-.29z"/></svg>
 </a>
 
@@ -1081,7 +1111,62 @@ footer li a:hover svg{opacity:1;transform:translateX(0)}
     }
   }
 
-  /* WhatsApp order funnel */
+  /* ---------- lead tracking (FB Pixel + Google Sheet webhook) ---------- */
+  var TRACK=window.SITE_TRACKING||{};
+  var LEADS_URL=TRACK.LEADS_WEBHOOK_URL||"";
+  var leadsConfigured=LEADS_URL && LEADS_URL.indexOf("REPLACE_WITH")!==0;
+  var pixelConfigured=TRACK.FB_PIXEL_ID && TRACK.FB_PIXEL_ID.indexOf("REPLACE_WITH")!==0;
+
+  function getUtm(){
+    try{
+      var stored=sessionStorage.getItem("utm_params");
+      if(stored)return JSON.parse(stored);
+      var qs=new URLSearchParams(window.location.search);
+      var utm={
+        utm_source:qs.get("utm_source")||"",
+        utm_medium:qs.get("utm_medium")||"",
+        utm_campaign:qs.get("utm_campaign")||"",
+        utm_content:qs.get("utm_content")||"",
+        fbclid:qs.get("fbclid")||""
+      };
+      sessionStorage.setItem("utm_params",JSON.stringify(utm));
+      return utm;
+    }catch(e){return {}}
+  }
+
+  function sendLead(payload){
+    if(!leadsConfigured)return;
+    payload.page_url=window.location.href;
+    payload.referrer=document.referrer||"";
+    payload.timestamp=new Date().toISOString();
+    var utm=getUtm();
+    for(var k in utm){payload[k]=utm[k]}
+    try{
+      fetch(LEADS_URL,{
+        method:"POST",
+        mode:"no-cors",
+        headers:{"Content-Type":"text/plain"},
+        body:JSON.stringify(payload)
+      });
+    }catch(e){}
+  }
+
+  function trackFb(eventName,params){
+    if(!pixelConfigured||typeof fbq!=="function")return;
+    fbq("track",eventName,params||{});
+  }
+
+  /* every WhatsApp click that isn't the order form: fires a Contact event + a lightweight lead row */
+  var waLinks=document.querySelectorAll("a[href*='wa.me']:not(#orderForm a)");
+  for(var w=0;w<waLinks.length;w++){
+    waLinks[w].addEventListener("click",function(){
+      var source=this.getAttribute("data-wa-source")||"other";
+      trackFb("Contact",{content_name:source});
+      sendLead({type:"whatsapp_click",source:source});
+    },false);
+  }
+
+  /* WhatsApp order funnel — this is the detailed, high-intent lead */
   var form=document.getElementById("orderForm");
   if(form){
     form.addEventListener("submit",function(e){
@@ -1096,6 +1181,10 @@ footer li a:hover svg{opacity:1;transform:translateX(0)}
         "💰 Stamp value: "+val+"\n"+
         (name?("👤 Name: "+name+"\n"):"")+
         "\n(Service fee: PKR 2,000 — issuance + drafting/formatting)";
+
+      trackFb("Lead",{content_name:"order_form",content_category:purpose,value:0,currency:"PKR"});
+      sendLead({type:"order_form_lead",source:"order_form",name:name,purpose:purpose,city:city,stamp_value:val});
+
       window.open("https://wa.me/923374841818?text="+encodeURIComponent(msg),"_blank");
     },false);
   }
