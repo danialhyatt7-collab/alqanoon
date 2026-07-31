@@ -42,7 +42,7 @@
   --dark-muted:#9a9a9a;
   --lime:#c2d83e;
   --lime-deep:#7ba81a;
-  --wa:#25d366;
+  --wa:var(--lime);
   --r-lg:30px;
   --r-md:22px;
   --r-sm:16px;
@@ -112,9 +112,9 @@ h1,h2,h3{font-weight:500;line-height:1.1;letter-spacing:-.032em}
 .chip-live{background:var(--panel);border-color:var(--line-2);color:var(--ink-2);font-weight:500}
 .chip-live .dot{
   width:7px;height:7px;border-radius:50%;background:var(--wa);
-  box-shadow:0 0 0 3px rgba(37,211,102,.18);animation:pulse 2.2s ease-in-out infinite;
+  box-shadow:0 0 0 3px rgba(195,216,62,.22);animation:pulse 2.2s ease-in-out infinite;
 }
-@keyframes pulse{0%,100%{box-shadow:0 0 0 3px rgba(37,211,102,.18)}50%{box-shadow:0 0 0 6px rgba(37,211,102,.05)}}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 3px rgba(195,216,62,.22)}50%{box-shadow:0 0 0 6px rgba(195,216,62,.06)}}
 
 /* ---------- buttons ---------- */
 .btn{
@@ -129,8 +129,8 @@ h1,h2,h3{font-weight:500;line-height:1.1;letter-spacing:-.032em}
 .btn-dark:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(0,0,0,.22);background:#000}
 .btn-light{background:#fff;color:var(--solid);border:1px solid var(--line-2);box-shadow:0 1px 3px rgba(0,0,0,.05)}
 .btn-light:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,0,0,.09);border-color:#c4c4c4}
-.btn-wa{background:var(--wa);color:#04250f;box-shadow:0 2px 10px rgba(37,211,102,.3)}
-.btn-wa:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(37,211,102,.4);background:#22c55e}
+.btn-wa{background:var(--wa);color:#12190a;box-shadow:0 2px 10px rgba(195,216,62,.32)}
+.btn-wa:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(195,216,62,.42);background:var(--lime-deep);color:#f4ffd6}
 .btn-sm{padding:10px 18px;font-size:13.5px}
 .btn .spin{
   width:15px;height:15px;flex:none;border-radius:50%;
@@ -412,7 +412,7 @@ header.site.scrolled .bar{box-shadow:0 6px 26px rgba(0,0,0,.09);border-color:rgb
 }
 .faq-cta:hover{transform:translateY(-3px);box-shadow:var(--shadow-lift)}
 .faq-cta .wa-dot{
-  flex:none;width:38px;height:38px;border-radius:50%;background:var(--wa);color:#04250f;
+  flex:none;width:38px;height:38px;border-radius:50%;background:var(--wa);color:#12190a;
   display:flex;align-items:center;justify-content:center;transition:transform .3s ease;
 }
 .faq-cta:hover .wa-dot{transform:scale(1.1) rotate(8deg)}
@@ -526,8 +526,8 @@ footer li a:hover svg{opacity:1;transform:translateX(0)}
 .wa-float{
   position:fixed;right:20px;bottom:20px;z-index:60;
   width:54px;height:54px;border-radius:50%;background:var(--wa);
-  display:flex;align-items:center;justify-content:center;color:#04250f;
-  box-shadow:0 6px 24px rgba(37,211,102,.42);text-decoration:none;
+  display:flex;align-items:center;justify-content:center;color:#12190a;
+  box-shadow:0 6px 24px rgba(195,216,62,.4);text-decoration:none;
   transition:transform .2s ease;
 }
 .wa-float:hover{transform:scale(1.09)}
