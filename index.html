@@ -256,14 +256,15 @@ header.site.scrolled .bar{box-shadow:0 6px 26px rgba(0,0,0,.09);border-color:rgb
 /* ---------- hero ---------- */
 .hero-grid{display:grid;grid-template-columns:1fr 1.08fr;gap:12px}
 @media(max-width:940px){.hero-grid{grid-template-columns:1fr}}
-.hero-left{display:flex;flex-direction:column}
-.hero-left h1{font-size:clamp(29px,3.5vw,42px);line-height:1.12;letter-spacing:-.025em;margin-bottom:14px}
-.hero-left .sub{font-size:15px;line-height:1.55;color:var(--muted);max-width:400px;margin-bottom:auto;padding-bottom:24px}
+.hero-left{display:flex;flex-direction:column;padding:46px 40px}
+@media(max-width:600px){.hero-left{padding:34px 26px}}
+.hero-left h1{font-size:clamp(29px,3.5vw,42px);line-height:1.15;letter-spacing:-.025em;margin-bottom:20px}
+.hero-left .sub{font-size:15px;line-height:1.65;color:var(--muted);max-width:400px;margin-bottom:auto;padding-bottom:36px}
 .chip-row{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:26px}
-.hero-left .chip-row{gap:6px;margin-bottom:22px}
-.hero-left .chip{font-size:12px;padding:6px 12px}
-.hero-left .btn{align-self:flex-start}
-.cta-note{font-size:12.5px;color:var(--muted);margin-top:10px;letter-spacing:.01em}
+.hero-left .chip-row{gap:9px;margin-bottom:34px}
+.hero-left .chip{font-size:12.5px;padding:8px 14px}
+.hero-left .btn{align-self:flex-start;padding:16px 28px}
+.cta-note{font-size:12.5px;color:var(--muted);margin-top:16px;letter-spacing:.01em}
 
 .hero-right h2{font-size:clamp(24px,2.9vw,33px);margin-bottom:16px;letter-spacing:-.03em}
 .hero-right .sub{font-size:14.5px;color:var(--dark-muted);max-width:470px;margin-bottom:28px}
