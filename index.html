@@ -565,8 +565,9 @@ footer li a:hover svg{opacity:1;transform:translateX(0)}
   width:54px;height:54px;border-radius:50%;background:var(--wa);
   display:flex;align-items:center;justify-content:center;color:#12190a;
   box-shadow:0 6px 24px rgba(195,216,62,.4);text-decoration:none;
-  transition:transform .2s ease;
+  transition:transform .2s ease,opacity .25s ease;
 }
+.wa-float.is-hidden{opacity:0;pointer-events:none;transform:scale(.85)}
 .wa-float:hover{transform:scale(1.09)}
 .wa-float::before{
   content:"";position:absolute;inset:0;border-radius:50%;border:1.5px solid var(--wa);
@@ -614,7 +615,7 @@ footer li a:hover svg{opacity:1;transform:translateX(0)}
 <div class="wrap">
 
   <!-- ============ HERO ============ -->
-  <div class="shell rv">
+  <div class="shell rv" id="heroShell">
     <div class="hero-grid">
 
       <div class="pane hero-left">
@@ -1011,6 +1012,30 @@ footer li a:hover svg{opacity:1;transform:translateX(0)}
   }
   window.addEventListener("scroll",onScroll,false);
   onScroll();
+
+  /* hide the floating WhatsApp button wherever it would sit on top of
+     content instead of open space (hero, the order form's own WhatsApp
+     button, the footer's links) */
+  var waFloat=document.querySelector(".wa-float");
+  if(waFloat && "IntersectionObserver" in window){
+    var waCollideTargets=[
+      document.getElementById("heroShell"),
+      document.getElementById("orderForm"),
+      document.querySelector("footer")
+    ];
+    var waHiddenBy={};
+    var waIo=new IntersectionObserver(function(entries){
+      for(var i=0;i<entries.length;i++){
+        waHiddenBy[entries[i].target===document.querySelector("footer")?"footer":entries[i].target.id]=entries[i].isIntersecting;
+      }
+      var shouldHide=false;
+      for(var k in waHiddenBy){if(waHiddenBy[k]){shouldHide=true;break}}
+      waFloat.className=shouldHide?"wa-float is-hidden":"wa-float";
+    },{threshold:0.15});
+    for(var w=0;w<waCollideTargets.length;w++){
+      if(waCollideTargets[w])waIo.observe(waCollideTargets[w]);
+    }
+  }
 
   /* dark / light mode toggle */
   var themeToggle=document.getElementById("themeToggle");
