@@ -257,11 +257,13 @@ header.site.scrolled .bar{box-shadow:0 6px 26px rgba(0,0,0,.09);border-color:rgb
 .hero-grid{display:grid;grid-template-columns:1fr 1.08fr;gap:12px}
 @media(max-width:940px){.hero-grid{grid-template-columns:1fr}}
 .hero-left{display:flex;flex-direction:column}
-.hero-left h1{font-size:clamp(29px,3.5vw,42px);margin-bottom:18px}
-.hero-left .sub{font-size:15px;color:var(--muted);max-width:400px;margin-bottom:auto;padding-bottom:30px}
+.hero-left h1{font-size:clamp(29px,3.5vw,42px);line-height:1.12;margin-bottom:14px}
+.hero-left .sub{font-size:15px;line-height:1.55;color:var(--muted);max-width:400px;margin-bottom:auto;padding-bottom:24px}
 .chip-row{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:26px}
+.hero-left .chip-row{gap:6px;margin-bottom:22px}
+.hero-left .chip{font-size:12px;padding:6px 12px}
 .hero-left .btn{align-self:flex-start}
-.cta-note{font-size:12.5px;color:var(--muted);margin-top:12px;letter-spacing:.01em}
+.cta-note{font-size:12.5px;color:var(--muted);margin-top:10px;letter-spacing:.01em}
 
 .hero-right h2{font-size:clamp(24px,2.9vw,33px);margin-bottom:16px;letter-spacing:-.03em}
 .hero-right .sub{font-size:14.5px;color:var(--dark-muted);max-width:470px;margin-bottom:28px}
@@ -623,7 +625,6 @@ footer li a:hover svg{opacity:1;transform:translateX(0)}
         <h1><span class="thin">Get your e-stamp paper</span><br>on WhatsApp —<br>in minutes.</h1>
         <p class="sub">Rent agreements, affidavits, power of attorney. We issue the official government e-stamp and draft the document for you — without leaving home.</p>
         <div class="chip-row">
-          <span class="chip chip-live"><span class="dot"></span> Replies in minutes</span>
           <span class="chip">Islamabad</span>
           <span class="chip">Rawalpindi</span>
           <span class="chip">Drafting included</span>
@@ -631,11 +632,11 @@ footer li a:hover svg{opacity:1;transform:translateX(0)}
           <span class="chip">Overseas friendly</span>
         </div>
         <a class="btn btn-dark" href="#order"><span class="spin"></span> Get my e-stamp on WhatsApp</a>
-        <p class="cta-note">Islamabad &amp; Rawalpindi · Rs. 1,000 flat fee · Replies in minutes</p>
+        <p class="cta-note">Rs. 1,000 flat fee · No office visit · Replies in minutes</p>
       </div>
 
       <div class="pane pane-dark hero-right dark">
-        <h2>Your stamp paper, issued in minutes.</h2>
+        <h2>One chat. No office visits.</h2>
         <p class="sub">Send your CNIC and purpose on WhatsApp. We handle the government portal, the challan and the drafting — and send back a print-ready, verifiable e-stamp.</p>
         <div class="diagram" aria-hidden="true">
           <div class="orbit"></div>
