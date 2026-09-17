@@ -746,18 +746,14 @@ footer li a:hover svg{opacity:1;transform:translateX(0)}
     <div class="shell rv d1">
       <div class="calc-grid">
         <div class="pane pane-dark dark calc-form">
-          <h2>Your salary</h2>
-          <p>Type your income and switch between monthly and yearly &mdash; the numbers update as you type.</p>
-          <div class="seg" id="calcSeg" role="tablist" aria-label="Salary period">
-            <button type="button" class="on" data-period="monthly" role="tab" aria-selected="true">Monthly</button>
-            <button type="button" data-period="yearly" role="tab" aria-selected="false">Yearly</button>
-          </div>
+          <h2>Your monthly salary</h2>
+          <p>Enter your gross monthly salary &mdash; we work out the tax for both the month and the full year as you type.</p>
           <div class="calc-inwrap">
             <span class="cur">PKR</span>
             <input id="calcSalary" type="text" inputmode="numeric" autocomplete="off"
-              placeholder="150,000" aria-label="Salary amount">
+              placeholder="150,000" aria-label="Monthly salary amount">
           </div>
-          <p class="calc-hint" id="calcHint">Enter your gross <b>monthly</b> salary.</p>
+          <p class="calc-hint">Gross monthly salary, before tax and deductions.</p>
         </div>
 
         <div class="pane calc-result">
@@ -1274,8 +1270,6 @@ footer li a:hover svg{opacity:1;transform:translateX(0)}
   /* ---------- salary tax calculator (TY 2025-26 salaried slabs) ---------- */
   var calcInput=document.getElementById("calcSalary");
   if(calcInput){
-    var period="monthly";
-
     function annualTax(a){
       var t;
       if(a<=600000)t=0;
@@ -1304,7 +1298,7 @@ footer li a:hover svg{opacity:1;transform:translateX(0)}
       var num=raw?parseInt(raw,10):0;
       /* keep the field formatted with thousands separators */
       calcInput.value=raw?num.toLocaleString():"";
-      var annualIncome=period==="monthly"?num*12:num;
+      var annualIncome=num*12;
       var tax=annualTax(annualIncome);
       var net=annualIncome-tax;
       var rate=annualIncome>0?(tax/annualIncome*100):0;
@@ -1317,24 +1311,6 @@ footer li a:hover svg{opacity:1;transform:translateX(0)}
     }
 
     calcInput.addEventListener("input",recalc,false);
-
-    var seg=document.getElementById("calcSeg");
-    var hint=document.getElementById("calcHint");
-    if(seg){
-      var segBtns=seg.querySelectorAll("button");
-      for(var s=0;s<segBtns.length;s++){
-        segBtns[s].addEventListener("click",function(){
-          period=this.getAttribute("data-period");
-          for(var b=0;b<segBtns.length;b++){
-            var on=segBtns[b]===this;
-            segBtns[b].className=on?"on":"";
-            segBtns[b].setAttribute("aria-selected",on?"true":"false");
-          }
-          if(hint)hint.innerHTML="Enter your gross <b>"+(period==="monthly"?"monthly":"yearly")+"</b> salary.";
-          recalc();
-        },false);
-      }
-    }
     recalc();
   }
 
