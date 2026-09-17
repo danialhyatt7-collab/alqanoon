@@ -432,6 +432,57 @@ header.site.scrolled .bar{box-shadow:0 6px 26px rgba(0,0,0,.09);border-color:rgb
 #orderForm .btn-wa{width:100%;margin-top:18px;padding:16px}
 .fine{font-size:11.5px;color:#6f6f6f;text-align:center;margin-top:13px;line-height:1.55}
 
+/* ---------- calculator ---------- */
+.calc-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:12px;align-items:stretch}
+@media(max-width:940px){.calc-grid{grid-template-columns:1fr}}
+.calc-form{display:flex;flex-direction:column}
+.calc-form h2{font-size:clamp(23px,2.7vw,30px);margin-bottom:10px;letter-spacing:-.03em}
+.calc-form>p{font-size:14px;color:var(--dark-muted);margin-bottom:24px;max-width:400px}
+.seg{
+  display:inline-flex;align-self:flex-start;gap:4px;margin-bottom:22px;
+  background:rgba(255,255,255,.05);border:1px solid var(--dark-line-2);border-radius:999px;padding:4px;
+}
+.seg button{
+  all:unset;box-sizing:border-box;cursor:pointer;font-family:var(--font);font-size:13px;font-weight:500;
+  color:var(--dark-muted);padding:8px 20px;border-radius:999px;text-align:center;
+  transition:background .25s ease,color .25s ease;
+}
+.seg button.on{background:var(--lime);color:#12190a}
+.calc-inwrap{position:relative;margin-top:auto}
+.calc-inwrap .cur{
+  position:absolute;left:17px;top:50%;transform:translateY(-50%);
+  color:var(--dark-muted);font-size:15px;font-weight:450;pointer-events:none;
+}
+#calcSalary{
+  width:100%;font-family:var(--font);font-size:22px;font-weight:500;letter-spacing:-.02em;color:var(--dark-text);
+  background:rgba(255,255,255,.045);border:1px solid var(--dark-line-2);border-radius:15px;
+  padding:16px 16px 16px 56px;outline:none;transition:border-color .2s ease,background .2s ease;
+}
+#calcSalary::placeholder{color:#5f5f5f;font-weight:400}
+#calcSalary:focus{border-color:rgba(195,245,60,.55);background:rgba(255,255,255,.07)}
+.calc-hint{font-size:12px;color:#6f6f6f;margin-top:10px}
+.calc-result{display:flex;flex-direction:column}
+.calc-result .r-label{font-size:12.5px;font-weight:450;color:var(--muted);letter-spacing:.01em;margin-bottom:8px}
+.calc-big{display:flex;align-items:baseline;gap:9px;margin-bottom:22px}
+.calc-big .c{font-size:16px;color:var(--muted-2);font-weight:450}
+.calc-big .v{font-size:clamp(38px,5vw,52px);font-weight:500;letter-spacing:-.045em;line-height:1}
+.calc-rows{list-style:none;margin:0 0 20px}
+.calc-rows li{
+  display:flex;justify-content:space-between;align-items:center;gap:14px;padding:13px 0;
+  font-size:14px;color:var(--muted);border-bottom:1px solid var(--line);
+}
+.calc-rows li:last-child{border-bottom:none}
+.calc-rows li b{font-size:15px;font-weight:500;color:var(--ink);letter-spacing:-.02em;white-space:nowrap}
+.calc-rows li.net b{color:var(--lime-deep)}
+.calc-slab{
+  display:flex;align-items:center;gap:9px;font-size:12.5px;color:var(--ink-2);
+  background:var(--panel);border:1px solid var(--line-2);border-radius:12px;padding:12px 15px;margin-bottom:20px;
+}
+.calc-slab b{color:var(--ink);font-weight:500}
+.calc-slab .dot{width:8px;height:8px;border-radius:50%;background:var(--lime-deep);flex:none}
+.calc-result .btn{align-self:flex-start;margin-top:auto}
+.calc-note{font-size:11.5px;color:var(--muted);line-height:1.6;margin-top:14px;padding:0 4px}
+
 /* ---------- why + stats ---------- */
 .why{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
 @media(max-width:940px){.why{grid-template-columns:repeat(2,1fr)}}
@@ -619,6 +670,7 @@ footer li a:hover svg{opacity:1;transform:translateX(0)}
       </a>
       <ul class="navlinks">
         <li><a href="#how">How it works</a></li>
+        <li><a href="#calculator">Calculator</a></li>
         <li><a href="#who">Who we file for</a></li>
         <li><a href="#pricing">Pricing</a></li>
         <li><a href="#faq">FAQ</a></li>
@@ -684,6 +736,49 @@ footer li a:hover svg{opacity:1;transform:translateX(0)}
 
     </div>
   </div>
+
+  <!-- ============ CALCULATOR ============ -->
+  <section class="sec" id="calculator">
+    <div class="sec-head rv">
+      <h2><span class="thin">Salary tax calculator</span><br>for 2025&ndash;26</h2>
+      <p>Enter your salary to see your estimated income tax, monthly deduction and take-home pay under the latest FBR slabs. Then file it with us in minutes.</p>
+    </div>
+    <div class="shell rv d1">
+      <div class="calc-grid">
+        <div class="pane pane-dark dark calc-form">
+          <h2>Your salary</h2>
+          <p>Type your income and switch between monthly and yearly &mdash; the numbers update as you type.</p>
+          <div class="seg" id="calcSeg" role="tablist" aria-label="Salary period">
+            <button type="button" class="on" data-period="monthly" role="tab" aria-selected="true">Monthly</button>
+            <button type="button" data-period="yearly" role="tab" aria-selected="false">Yearly</button>
+          </div>
+          <div class="calc-inwrap">
+            <span class="cur">PKR</span>
+            <input id="calcSalary" type="text" inputmode="numeric" autocomplete="off"
+              placeholder="150,000" aria-label="Salary amount">
+          </div>
+          <p class="calc-hint" id="calcHint">Enter your gross <b>monthly</b> salary.</p>
+        </div>
+
+        <div class="pane calc-result">
+          <span class="r-label">Estimated income tax (per year)</span>
+          <div class="calc-big"><span class="c">PKR</span><span class="v" id="rTaxYear">0</span></div>
+          <ul class="calc-rows">
+            <li><span>Tax per month</span><b id="rTaxMonth">PKR 0</b></li>
+            <li><span>Effective tax rate</span><b id="rRate">0%</b></li>
+            <li class="net"><span>Take-home per month</span><b id="rNetMonth">PKR 0</b></li>
+            <li class="net"><span>Take-home per year</span><b id="rNetYear">PKR 0</b></li>
+          </ul>
+          <div class="calc-slab"><span class="dot"></span>Your marginal tax slab:&nbsp;<b id="rSlab">0%</b></div>
+          <a class="btn btn-dark" data-wa-source="calc_cta" href="#order">
+            File my return
+            <svg class="arw" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <p class="calc-note">Estimate for salaried individuals under Tax Year 2025&ndash;26 slabs. It doesn't account for every allowance, tax credit or surcharge. For your exact figure and filing, message us on WhatsApp.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- ============ HOW ============ -->
   <section class="sec" id="how">
@@ -1174,6 +1269,73 @@ footer li a:hover svg{opacity:1;transform:translateX(0)}
         },false);
       })(faqItems[f]);
     }
+  }
+
+  /* ---------- salary tax calculator (TY 2025-26 salaried slabs) ---------- */
+  var calcInput=document.getElementById("calcSalary");
+  if(calcInput){
+    var period="monthly";
+
+    function annualTax(a){
+      var t;
+      if(a<=600000)t=0;
+      else if(a<=1200000)t=(a-600000)*0.01;
+      else if(a<=2200000)t=6000+(a-1200000)*0.11;
+      else if(a<=3200000)t=116000+(a-2200000)*0.23;
+      else if(a<=4100000)t=346000+(a-3200000)*0.30;
+      else t=616000+(a-4100000)*0.35;
+      /* 9% surcharge on tax where taxable income exceeds Rs 10,000,000 */
+      if(a>10000000)t+=t*0.09;
+      return t;
+    }
+    function marginalSlab(a){
+      if(a<=600000)return "0%";
+      if(a<=1200000)return "1%";
+      if(a<=2200000)return "11%";
+      if(a<=3200000)return "23%";
+      if(a<=4100000)return "30%";
+      return "35%";
+    }
+    function money(n){return "PKR "+Math.round(n).toLocaleString();}
+    function setText(id,v){var el=document.getElementById(id);if(el)el.textContent=v;}
+
+    function recalc(){
+      var raw=(calcInput.value||"").replace(/[^0-9]/g,"");
+      var num=raw?parseInt(raw,10):0;
+      /* keep the field formatted with thousands separators */
+      calcInput.value=raw?num.toLocaleString():"";
+      var annualIncome=period==="monthly"?num*12:num;
+      var tax=annualTax(annualIncome);
+      var net=annualIncome-tax;
+      var rate=annualIncome>0?(tax/annualIncome*100):0;
+      setText("rTaxYear",Math.round(tax).toLocaleString());
+      setText("rTaxMonth",money(tax/12));
+      setText("rRate",(Math.round(rate*10)/10)+"%");
+      setText("rNetMonth",money(net/12));
+      setText("rNetYear",money(net));
+      setText("rSlab",marginalSlab(annualIncome));
+    }
+
+    calcInput.addEventListener("input",recalc,false);
+
+    var seg=document.getElementById("calcSeg");
+    var hint=document.getElementById("calcHint");
+    if(seg){
+      var segBtns=seg.querySelectorAll("button");
+      for(var s=0;s<segBtns.length;s++){
+        segBtns[s].addEventListener("click",function(){
+          period=this.getAttribute("data-period");
+          for(var b=0;b<segBtns.length;b++){
+            var on=segBtns[b]===this;
+            segBtns[b].className=on?"on":"";
+            segBtns[b].setAttribute("aria-selected",on?"true":"false");
+          }
+          if(hint)hint.innerHTML="Enter your gross <b>"+(period==="monthly"?"monthly":"yearly")+"</b> salary.";
+          recalc();
+        },false);
+      }
+    }
+    recalc();
   }
 
   /* ---------- lead tracking (FB Pixel + Google Sheet webhook) ---------- */
